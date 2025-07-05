@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chismógrafo Retro</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom right, #ffccff, lavenderblush);
+      color: #8b008b;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      text-shadow: 2px 2px 6px hotpink;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .question label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .question input, .question textarea {
+      width: 100%;
+      padding: 8px;
+      border: 2px dashed hotpink;
+      border-radius: 10px;
+      background: #fff0f5;
+    }
+
+    button {
+      background-color: hotpink;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-weight: bold;
+      font-size: 1em;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px gray;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: deeppink;
+    }
+
+    .response {
+      background: #ffe4e1;
+      border: 1px solid pink;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
+    .sparkles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: url('https://media.giphy.com/media/l4KhQo2MESJkc6QbS/giphy.gif') repeat;
+      opacity: 0.2;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+  <div class="sparkles"></div>
+  <h1>💖 Mi Chismógrafo Retro 💖</h1>
+
+  <audio autoplay loop>
+    <source src="https://files.catbox.moe/9cc6y5.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio HTML5.
+  </audio>
+
+  <form id="quizForm">
+    <div class="question"><label>1. ¿Cuál es tu nombre completo?</label><input type="text" /></div>
+    <div class="question"><label>2. ¿Quién te gusta? 🙊</label><input type="text" /></div>
+    <div class="question"><label>3. ¿Qué música te gusta? 🎵</label><input type="text" /></div>
+    <div class="question"><label>4. ¿Cuál es tu sueño más loco?</label><textarea rows="3"></textarea></div>
+    <div class="question"><label>5. Cuéntanos un secreto 🤫</label><textarea rows="3"></textarea></div>
+    <div class="question"><label>6. ¿Tu color favorito? 🎨</label><input type="text" /></div>
+    <div class="question"><label>7. ¿Qué superpoder te gustaría tener? 🦸‍♀️</label><input type="text" /></div>
+    <div class="question"><label>8. ¿Qué serie o película te sabes de memoria? 📺</label><input type="text" /></div>
+    <div class="question"><label>9. ¿Tu apodo más raro o gracioso? 😅</label><input type="text" /></div>
+    <div class="question"><label>10. ¿Algo que te dé mucha pena admitir? 🙈</label><textarea rows="3"></textarea></div>
+    <button type="submit">Enviar respuestas 💌</button>
+  </form>
+
+  <div id="result" class="response" style="display: none;"></div>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      document.getElementById('result').innerHTML = '<h3>💖 ¡Gracias por compartir! 💖</h3>';
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('quizForm').reset();
+    });
+  </script>
+</body>
+</html>
