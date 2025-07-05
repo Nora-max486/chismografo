@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chismógrafo Retro</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive;
+      background: linear-gradient(to bottom right, pink, lavenderblush);
+      color: #8b008b;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      text-shadow: 1px 1px 4px hotpink;
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .question input, .question textarea {
+      width: 100%;
+      padding: 8px;
+      border: 2px dashed hotpink;
+      border-radius: 10px;
+      background: #fff0f5;
+    }
+    button {
+      background-color: hotpink;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      font-weight: bold;
+      font-size: 1em;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px gray;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: deeppink;
+    }
+    .response {
+      background: #ffe4e1;
+      border: 1px solid pink;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>💖 Mi Chismógrafo Retro 💖</h1>
+
+  <form id="quizForm">
+    <div class="question">
+      <label for="name">1. ¿Cuál es tu nombre completo?</label>
+      <input type="text" id="name" required />
+    </div>
+
+    <div class="question">
+      <label for="crush">2. ¿Quién te gusta? 🙊</label>
+      <input type="text" id="crush" />
+    </div>
+
+    <div class="question">
+      <label for="music">3. ¿Qué música te gusta? 🎵</label>
+      <input type="text" id="music" />
+    </div>
+
+    <div class="question">
+      <label for="dream">4. ¿Cuál es tu sueño más loco?</label>
+      <textarea id="dream" rows="3"></textarea>
+    </div>
+
+    <div class="question">
+      <label for="secret">5. Cuéntanos un secreto 🤫</label>
+      <textarea id="secret" rows="3"></textarea>
+    </div>
+
+    <div class="question">
+      <label for="color">6. ¿Tu color favorito? 🎨</label>
+      <input type="text" id="color" />
+    </div>
+
+    <div class="question">
+      <label for="power">7. ¿Qué superpoder te gustaría tener? 🦸‍♀️</label>
+      <input type="text" id="power" />
+    </div>
+
+    <div class="question">
+      <label for="movie">8. ¿Qué serie o película te sabes de memoria? 📺</label>
+      <input type="text" id="movie" />
+    </div>
+
+    <div class="question">
+      <label for="nickname">9. ¿Tu apodo más raro o gracioso? 😅</label>
+      <input type="text" id="nickname" />
+    </div>
+
+    <div class="question">
+      <label for="embarrassed">10. ¿Algo que te dé mucha pena admitir? 🙈</label>
+      <textarea id="embarrassed" rows="3"></textarea>
+    </div>
+
+    <button type="submit">Enviar respuestas 💌</button>
+  </form>
+
+  <div id="result" class="response" style="display: none;"></div>
+
+  <script>
+    document.getElementById('quizForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const crush = document.getElementById('crush').value;
+      const music = document.getElementById('music').value;
+      const dream = document.getElementById('dream').value;
+      const secret = document.getElementById('secret').value;
+      const color = document.getElementById('color').value;
+      const power = document.getElementById('power').value;
+      const movie = document.getElementById('movie').value;
+      const nickname = document.getElementById('nickname').value;
+      const embarrassed = document.getElementById('embarrassed').value;
+
+      const result = `
+        <h2>✨ ¡Gracias por compartir, ${name}! ✨</h2>
+        <p><strong>Tu crush:</strong> ${crush || '😶 (No lo quisiste decir...)'}</p>
+        <p><strong>Te gusta la música:</strong> ${music}</p>
+        <p><strong>Tu sueño loco:</strong> ${dream}</p>
+        <p><strong>Tu secreto:</strong> ${secret}</p>
+        <p><strong>Color favorito:</strong> ${color}</p>
+        <p><strong>Superpoder soñado:</strong> ${power}</p>
+        <p><strong>Serie o película favorita:</strong> ${movie}</p>
+        <p><strong>Apodo raro:</strong> ${nickname}</p>
+        <p><strong>Pena que admites:</strong> ${embarrassed}</p>
+      `;
+
+      document.getElementById('result').innerHTML = result;
+      document.getElementById('result').style.display = 'block';
+      document.getElementById('quizForm').reset();
+    });
+  </script>
+</body>
+</html>
